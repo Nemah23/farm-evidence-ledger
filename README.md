@@ -10,7 +10,7 @@ BACISS 2026 Project Build submission.
 ## Submission checklist
 | Requirement | Where |
 |---|---|
-| Deployed contract on Fuji + explorer link | **Contract:** `0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26`  **Explorer:** `https://testnet.snowscan.xyz/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26` |
+| Deployed contract on Fuji + explorer link | **Contract:** `0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26`  **Explorer:** `https://testnet.https://explorer-test.avax.network/c-chain/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26.xyz/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26` |
 | Source code, README, basic tests | this repo (`contracts/`, `test/`, `edge/`) |
 | Live demo, at least two state-changing transactions | see [Demo script](#demo-script) |
 | Problem, why Avalanche, next milestone | see below |
@@ -75,7 +75,7 @@ The script prints the contract address and explorer link. (Or paste `contracts/E
 into Remix, compile with EVM version `paris`, and deploy with MetaMask on Fuji.)
 
 ### Verify the contract on the explorer
-Open `https://testnet.snowscan.xyz/address/<ADDRESS>`, choose Contract, then Verify and Publish. Use "Solidity (Single file)",
+Open `https://testnet.https://explorer-test.avax.network/c-chain/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26.xyz/address/<ADDRESS>`, choose Contract, then Verify and Publish. Use "Solidity (Single file)",
 compiler 0.8.26, MIT license, optimizer enabled with 200 runs, EVM version `paris`, and paste `contracts/EvidenceLedger.sol`.
 The settings must match the deployed build exactly (if you deployed from Remix, use the compiler and optimizer settings Remix shows).
 Verified source lets judges read the code and use the explorer's Write Contract tab.
