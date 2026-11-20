@@ -10,9 +10,9 @@ BACISS 2026 Project Build submission.
 ## Submission checklist
 | Requirement | Where |
 |---|---|
-| Deployed contract on Fuji + explorer link | **Contract:** `0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26`  **Explorer:** `https://testnet.https://explorer-test.avax.network/c-chain/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26.xyz/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26` |
+| Deployed contract on Fuji + explorer link | **Contract:** `0x777398F6C4b3AC46B85D8e60EF0B39D8032c4e26`<br>**Explorer:** [0x777398F6C4b3AC46B85D8e60EF0B39D8032c4e26](https://build.avax.network/explorer/fuji/c-chain/address/0x777398F6C4b3AC46B85D8e60EF0B39D8032c4e26)<br>**Deployment transaction:** [view](https://build.avax.network/explorer/fuji/c-chain/tx/0x17d61c6824eef3e35bdc690151b23e1ed7698383efdb5c18c311f2634d6d05a4) |
 | Source code, README, basic tests | this repo (`contracts/`, `test/`, `edge/`) |
-| Live demo, at least two state-changing transactions | see [Demo script](#demo-script) |
+| Live demo, at least two state-changing transactions | see [Demo script](#demo-script)<br>**Transaction 1 (`recordEvent`):** [view](https://build.avax.network/explorer/fuji/c-chain/tx/0xad76ddf6a5c256e070428daed31fe34a2cbd2d097f187f8e7aa9b78ec411f96f)<br>**Transaction 2 (`logCustody`):** [view](https://build.avax.network/explorer/fuji/c-chain/tx/0xd6f5eede7cb0f458094b68738ae74123b15693adb035a22366618cd03f20dfbd) |
 | Problem, why Avalanche, next milestone | see below |
 | No real funds / personal data | mock identities and test tokens only (see [Data and safety](#data-and-safety)) |
 
@@ -75,7 +75,7 @@ The script prints the contract address and explorer link. (Or paste `contracts/E
 into Remix, compile with EVM version `paris`, and deploy with MetaMask on Fuji.)
 
 ### Verify the contract on the explorer
-Open `https://testnet.https://explorer-test.avax.network/c-chain/address/0x777398f6c4b3ac46b85d8e60ef0b39d8032c4e26.xyz/address/<ADDRESS>`, choose Contract, then Verify and Publish. Use "Solidity (Single file)",
+Open your contract page on the Fuji explorer, choose Contract, then Verify and Publish (if the explorer offers it). Use "Solidity (Single file)",
 compiler 0.8.26, MIT license, optimizer enabled with 200 runs, EVM version `paris`, and paste `contracts/EvidenceLedger.sol`.
 The settings must match the deployed build exactly (if you deployed from Remix, use the compiler and optimizer settings Remix shows).
 Verified source lets judges read the code and use the explorer's Write Contract tab.
