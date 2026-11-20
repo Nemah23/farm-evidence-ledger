@@ -1,0 +1,19 @@
+{
+  "name": "farm-evidence-ledger",
+  "version": "1.0.0",
+  "description": "Tamper-evident livestock-theft evidence ledger on Avalanche (BACISS 2026)",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:fuji": "hardhat run scripts/deploy.js --network fuji"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "chai": "^4.3.0",
+    "ethers": "^6.0.0",
+    "hardhat": "^2.22.0",
+    "dotenv": "^16.4.5"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+cache/
+artifacts/
+.env
+*.pem
+evidence/
+events.db
+__pycache__/
+venv/
