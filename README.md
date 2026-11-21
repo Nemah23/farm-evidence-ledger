@@ -7,6 +7,8 @@ Police, insurers and buyers can later check that a photo is untouched without ha
 
 BACISS 2026 Project Build submission.
 
+**Live dashboard (reads the contract on Fuji):** [https://nemah23.github.io/farm-evidence-ledger/E-GateWatch_Dashboard.html](https://nemah23.github.io/farm-evidence-ledger/E-GateWatch_Dashboard.html)
+
 ## Submission checklist
 | Requirement | Where |
 |---|---|
@@ -96,7 +98,8 @@ Without a Raspberry Pi the monitor runs with simulated GPIO (laptop mode).
 
 ## Demo script
 1. **Detection -> state-changing transaction #1:** a person appears at the gate; the event is sealed,
-   a Telegram alert arrives, and `recordEvent` is anchored on Fuji (open the transaction on the explorer).
+   a Telegram alert arrives, and `recordEvent` is anchored on Fuji (open the transaction on the explorer,
+   or watch the event appear on the [live dashboard](https://nemah23.github.io/farm-evidence-ledger/E-GateWatch_Dashboard.html)).
 2. **Custody -> transaction #2:** `python log_custody.py evidence/<file>_raw_<time>.jpg "reviewed by ranger"`,
    then `python log_custody.py --show <same file>` to read the trail.
 3. **Verify:** `python verify_evidence.py <file> --chain` shows UNTOUCHED. Edit the image and run it again:
@@ -119,18 +122,26 @@ Without a Raspberry Pi the monitor runs with simulated GPIO (laptop mode).
 
 ## Limitations (honest)
 - The hash proves a file is unchanged since sealing, not that the camera input was genuine.
-  Mitigations: device signing keys, tamper and heartbeat monitoring, revocation of stolen devices.
+  Mitigations: device signing keys, sealed tamper events (enclosure lid switch), signed heartbeats
+  (a watcher that alerts on missed heartbeats is the next milestone), and revocation of stolen devices.
 - The general COCO model detects cattle, sheep and horses but has no goat class; night performance
   with a basic webcam is limited. Accuracy results: *(add your test numbers)*.
-- Edge code and contract are tested in simulation and on a local chain; field testing is the next step.
+- The contract is covered by 14 automated tests and deployed on Fuji. The edge monitor has been run end to end on a
+  Raspberry Pi 5 with two cameras (alert, Telegram, on-chain anchoring, verification, custody entry), but not yet on a real
+  farm. Field testing is the next step.
+- The Raspberry Pi has no battery-backed clock, so a real-time clock is needed for production.
+- The chain stores a fingerprint, not what the event was. The event type (person, tamper) lives in the evidence file
+  next to the photo and in the Telegram alert. Storing an event type on-chain is a possible contract upgrade.
 
 ## Next milestone
 Pilot with a farmers' association: field-test cameras with battery backup, add an animal-ownership
 registry and a buyer-side "reported stolen" check, move to a permissioned Avalanche L1, and add a
-dashboard and heartbeat watcher that alerts when a camera goes offline.
+heartbeat watcher that alerts when a camera goes offline. A read-only dashboard of on-chain events already exists
+(`E-GateWatch_Dashboard.html`); next is device status and a farmer app.
 
 ## Repository layout
 ```
+E-GateWatch_Dashboard.html      live read-only dashboard (reads events from the Fuji contract)
 contracts/EvidenceLedger.sol    smart contract
 test/EvidenceLedger.test.js     Hardhat tests (14)
 scripts/deploy.js               deploy to Fuji
